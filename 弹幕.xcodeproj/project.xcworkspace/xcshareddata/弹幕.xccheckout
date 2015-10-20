@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3257E3FC-9F2B-40A6-BDD0-B974D63963C8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>弹幕</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FF632827227E680835129E11981C13A1954472D8</key>
+		<string>https://github.com/WillieWu/paomadeng.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>弹幕.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FF632827227E680835129E11981C13A1954472D8</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/WillieWu/paomadeng.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FF632827227E680835129E11981C13A1954472D8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FF632827227E680835129E11981C13A1954472D8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>%E5%BC%B9%E5%B9%95</string>
+		</dict>
+	</array>
+</dict>
+</plist>

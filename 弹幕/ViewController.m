@@ -31,7 +31,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
 //    0.弹幕
     NSMutableArray *dans = [self contents];
@@ -57,9 +56,6 @@
     [_randomDansView addRandomText:[NSString stringWithFormat:@"好不下个安师大哈送打电话地球哦我当前。。。%d",a]];
 }
 - (IBAction)puse:(id)sender {
-  
-//    NSMutableArray *dans = [self contents];
-//    [_dansView addRandomText:[dans firstObject]];
     
     [_dansView starDans];
 }

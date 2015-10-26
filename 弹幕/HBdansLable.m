@@ -7,7 +7,6 @@
 //
 
 #import "HBdansLable.h"
-#import "UIView+WHB.h"
 
 @interface HBdansLable()
 {
@@ -28,7 +27,7 @@
 {
     HBdansLable *dansLable = [[HBdansLable alloc] initWithFrame:frame];
     return dansLable;
-
+    
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -36,16 +35,16 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.textAlignment = NSTextAlignmentCenter;
-       
-        self.layer.cornerRadius = self.roundVaule;
-        self.layer.masksToBounds = YES;
         
-        self.layer.borderColor = self.lineColor.CGColor;
-        self.layer.borderWidth = self.lineWidth;
+        //        self.layer.cornerRadius = self.roundVaule;
+        //        self.layer.masksToBounds = YES;
+        //
+        //        self.layer.borderColor = self.lineColor.CGColor;
+        //        self.layer.borderWidth = self.lineWidth;
         
         
         [self addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
-
+        
     }
     return self;
 }
@@ -58,21 +57,21 @@
     if ([self.delegate respondsToSelector:@selector(dansLable:isOutScreen:)]) {
         [self.delegate dansLable:dansLable isOutScreen:[self isOutScreen]];
     }
-        
-
+    
+    
 }
 - (void)updateFrame
 {
     if (self.isStar)
-    self.x -= 4;
+        self.x -= 1;
 }
 - (void)starDans
 {
-//    if (self.contents.count && count == 1 && _contentLable.x == CGRectGetMaxX(self.frame)) _contentLable.text = [self.contents firstObject];
+    
     self.displayLink.paused = NO;
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     self.isStar = YES;
-    NSLog(@"starDans");
+    
 }
 - (void)puseDans
 {
@@ -81,7 +80,7 @@
     self.isStar = NO;
     [self.displayLink invalidate];
     self.displayLink = nil;
-    NSLog(@"puseDans");
+    
 }
 - (BOOL)isOutScreen
 {
@@ -109,13 +108,13 @@
 {
     [super setText:text];
     
-   CGRect contextFrame = [text boundingRectWithSize:CGSizeMake(MAXFLOAT, self.height)
-                                            options:NSStringDrawingUsesLineFragmentOrigin
-                                         attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:17]}
-                                            context:nil];
+    CGRect contextFrame = [text boundingRectWithSize:CGSizeMake(MAXFLOAT, self.height)
+                                             options:NSStringDrawingUsesLineFragmentOrigin
+                                          attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:17]}
+                                             context:nil];
     NSString *str = [NSString stringWithFormat:@"%.f",contextFrame.size.width + 10];
     self.width = [str floatValue];
-    self.height = contextFrame.size.height;
+    self.height = contextFrame.size.height + 6;
     
     [self starDans];
 }

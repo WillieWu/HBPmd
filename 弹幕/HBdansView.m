@@ -19,12 +19,14 @@
 
 @implementation HBdansView
 
+#define defaultH 25
+
 - (instancetype)initDansViewFrame:(CGRect)frame contents:(NSMutableArray *)contents
 {
     self = [super initWithFrame:frame];
     if (self) {
         self.randomMutableArray = contents;
-         [self setInit];
+        [self setInit];
     }
     return self;
 }
@@ -37,11 +39,14 @@
     }
     return self;
 }
+#pragma mark - initIvar
 - (void)setInit
 {
-    self.textBackColor = [UIColor whiteColor];
-    self.count = 1;
-
+    self.textBackColor = [UIColor clearColor];
+    self.backgroundColor = [UIColor clearColor];
+    self.countInScreen = 1;
+    self.clipsToBounds = YES;
+    
 }
 - (void)starDans
 {
@@ -51,18 +56,25 @@
 }
 - (void)addRandomText:(NSString *)randomText
 {
-    
-    if (!randomText.length) return;
-    if (![self dequeRandomLable:randomText]) {
+    if (randomText.length){
         
-        [self.randomMutableArray addObject:randomText];
-        
+        if (![self dequeRandomLable:randomText]) {
+            
+            [self.randomMutableArray addObject:randomText];
+            
+        }
     }
-    
 }
+#pragma mark - CustomMethod
 - (HBdansLable *)dequeRandomLable:(NSString *)text
 {
     HBdansLable *randomLable = [self.randomSet anyObject];
+    
+    randomLable.layer.cornerRadius = self.roundVaule;
+    randomLable.layer.borderColor = self.lineColor.CGColor;
+    randomLable.layer.borderWidth = self.lineWidth;
+    randomLable.backgroundColor = self.textBackColor;
+    randomLable.textColor = self.textColor;
     
     [self addSubview:randomLable];
     
@@ -78,10 +90,11 @@
 
 - (CGRect)randomFrame
 {
+    
     CGFloat randomW = 10;
-    CGFloat randomH = 44;
-    CGFloat randomX = [UIScreen mainScreen].bounds.size.width;
-    CGFloat randomY = arc4random_uniform(self.height - randomH);
+    CGFloat randomH = defaultH;
+    CGFloat randomX = CGRectGetMaxX(self.frame);
+    CGFloat randomY = 0;
     
     return CGRectMake(randomX, randomY, randomW, randomH);
 }
@@ -91,12 +104,9 @@
     if (isOutScreen) {
         
         dansLable.x = CGRectGetMaxX(self.frame);
-        dansLable.y = arc4random_uniform(self.height - 44);
         
-        [self.randomSet addObject:dansLable];
         [dansLable removeFromSuperview];
-        
-        NSLog(@"缓存池数量：%@",@(self.randomSet.count));
+        [self.randomSet addObject:dansLable];
         
         if (self.randomMutableArray.count){
             
@@ -120,20 +130,26 @@
         
         _randomSet = [NSMutableSet set];
         
-        //    随机
-        if (self.count > 10) self.count = 10;
-        for (NSInteger i = 0; i < self.count; i++) {
-            
-            HBdansLable *randomLable = [HBdansLable dansLableFrame:[self randomFrame]];
-            randomLable.delegate = self;
-            randomLable.roundVaule = self.roundVaule;
-            randomLable.lineColor = self.lineColor;
-            randomLable.lineWidth = self.lineWidth;
-            randomLable.backgroundColor = self.textBackColor;
-            [self.randomSet addObject:randomLable];
-            
-        }
     }
     return _randomSet;
+}
+- (void)setCountInScreen:(NSInteger)countInScreen
+{
+    _countInScreen = countInScreen;
+    
+    if (self.randomSet.count) [self.randomSet removeAllObjects];
+    //    随机
+    if (_countInScreen > 10) _countInScreen = 10;
+    CGFloat margin = (self.height - _countInScreen * defaultH) / (_countInScreen + 1);
+    for (NSInteger i = 0; i < _countInScreen; i++) {
+        HBdansLable *randomLable = [HBdansLable dansLableFrame:[self randomFrame]];
+        randomLable.y = i * (margin + defaultH) + margin;
+        randomLable.delegate = self;
+        randomLable.layer.masksToBounds = YES;
+        
+        [self.randomSet addObject:randomLable];
+        
+    }
+    
 }
 @end

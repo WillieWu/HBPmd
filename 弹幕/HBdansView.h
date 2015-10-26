@@ -30,7 +30,7 @@
 /**
  *  屏幕内最多显示的条数(最小值为1（默认值） 最大10)
  */
-@property (nonatomic, assign) NSInteger count;
+@property (nonatomic, assign) NSInteger countInScreen;
 /**
  *  圆角值
  */

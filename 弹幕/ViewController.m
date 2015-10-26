@@ -37,12 +37,13 @@
     
     _dansView = [[HBdansView alloc] initDansViewFrame:CGRectMake(0, 20, self.view.width, 44) contents:dans];
     _dansView.backgroundColor = [UIColor lightGrayColor];
+    _dansView.textColor = [UIColor redColor];
     [self.view addSubview:_dansView];
     
     
     
     _randomDansView = [[HBdansView alloc] initWithFrame:CGRectMake(0, 84, self.view.width, 320)];
-    _randomDansView.count = 3;
+    _randomDansView.countInScreen = 3;
     _randomDansView.backgroundColor = [UIColor purpleColor];
     [self.view addSubview:_randomDansView];
     

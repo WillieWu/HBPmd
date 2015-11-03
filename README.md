@@ -1,6 +1,6 @@
 # HBPmd
 
-![设计图.jpg](http://7xnt2l.com1.z0.glb.clouddn.com/设计图.jpg)
+![设计图.jpg](http://7xnt2l.com1.z0.glb.clouddn.com/设计图2.gif)
 
 实现跑马灯，以及弹幕
 

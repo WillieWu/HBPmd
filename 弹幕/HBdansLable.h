@@ -13,6 +13,7 @@
 
 @protocol HBdansLableDelegate <NSObject>
 
+/**判断是否滚出屏幕外面，并回准备回收实例**/
 - (void)dansLable:(HBdansLable *)dansLable isOutScreen:(BOOL)isOutScreen;
 
 @end

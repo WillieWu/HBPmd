@@ -54,6 +54,7 @@
     [self addRandomText:[self.randomMutableArray firstObject]];
     [self.randomMutableArray removeObjectAtIndex:0];
 }
+
 - (void)addRandomText:(NSString *)randomText
 {
     if (randomText.length){
@@ -70,24 +71,26 @@
 {
     HBdansLable *randomLable = [self.randomSet anyObject];
     
-    randomLable.layer.cornerRadius = self.roundVaule;
-    randomLable.layer.borderColor = self.lineColor.CGColor;
-    randomLable.layer.borderWidth = self.lineWidth;
-    randomLable.backgroundColor = self.textBackColor;
-    randomLable.textColor = self.textColor;
+    if (!randomLable) return nil;
+    
+    [self setRandomStyle:randomLable];
     
     [self addSubview:randomLable];
     
-    if (randomLable) {
+    [self.randomSet removeObject:randomLable];
         
-        [self.randomSet removeObject:randomLable];
+    randomLable.text = text;
         
-        randomLable.text = text;
-        
-    }
     return randomLable;
 }
-
+- (void)setRandomStyle:(HBdansLable *)lable
+{
+    lable.layer.cornerRadius = self.roundVaule;
+    lable.layer.borderColor = self.lineColor.CGColor;
+    lable.layer.borderWidth = self.lineWidth;
+    lable.backgroundColor = self.textBackColor;
+    lable.textColor = self.textColor;
+}
 - (CGRect)randomFrame
 {
     

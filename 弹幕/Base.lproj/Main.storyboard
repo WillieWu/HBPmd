@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,34 +18,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3o-3n-EG4">
-                                <rect key="frame" x="283" y="496" width="35" height="30"/>
+                                <rect key="frame" x="280" y="496" width="41" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="开 始">
+                                <state key="normal" title="开 始1">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="begin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BaE-Hu-q6c"/>
+                                    <action selector="begin1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oXs-zb-JJC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edc-zL-1Kv">
-                                <rect key="frame" x="283" y="550" width="35" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IR0-uu-cyF">
+                                <rect key="frame" x="279" y="541" width="43" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="暂 停">
+                                <state key="normal" title="开 始2">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="puse:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dYd-7Q-R8T"/>
+                                    <action selector="begin2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y35-af-Se9"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IR0-uu-cyF" firstAttribute="top" secondItem="z3o-3n-EG4" secondAttribute="bottom" constant="15" id="2Su-JC-BUn"/>
+                            <constraint firstItem="IR0-uu-cyF" firstAttribute="centerX" secondItem="z3o-3n-EG4" secondAttribute="centerX" id="A4k-B4-LyU"/>
                             <constraint firstAttribute="centerY" secondItem="z3o-3n-EG4" secondAttribute="centerY" constant="-211" id="Rbu-Oe-Ym6"/>
-                            <constraint firstItem="Edc-zL-1Kv" firstAttribute="centerX" secondItem="z3o-3n-EG4" secondAttribute="centerX" id="SNk-jH-j0C"/>
                             <constraint firstAttribute="centerX" secondItem="z3o-3n-EG4" secondAttribute="centerX" id="jLI-bm-idq"/>
-                            <constraint firstItem="Edc-zL-1Kv" firstAttribute="top" secondItem="z3o-3n-EG4" secondAttribute="bottom" constant="24" id="yMz-TO-SDc"/>
                         </constraints>
                     </view>
                     <connections>

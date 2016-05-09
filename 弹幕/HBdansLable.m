@@ -73,7 +73,7 @@
     self.isStar = YES;
     
 }
-- (void)puseDans
+- (void)stopDans
 {
     if (self.displayLink.isPaused) return;
     self.displayLink.paused = YES;
@@ -82,11 +82,12 @@
     self.displayLink = nil;
     
 }
+
 - (BOOL)isOutScreen
 {
     if (self.x < 0 && ABS(self.x) >= self.width) {
         
-        [self puseDans];
+        [self stopDans];
         
         return YES;
     }

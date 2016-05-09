@@ -22,6 +22,7 @@
 
 + (instancetype)dansLableFrame:(CGRect)frame;
 
+
 @property (nonatomic, weak) id<HBdansLableDelegate>  delegate;
 
 @property (nonatomic, assign) CGFloat roundVaule;

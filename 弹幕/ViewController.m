@@ -47,16 +47,28 @@
     _randomDansView.backgroundColor = [UIColor purpleColor];
     [self.view addSubview:_randomDansView];
     
+
+    
 }
 
-#pragma mark - touch
-- (IBAction)begin:(id)sender {
+/*
+ 这里有两种方式去展示弹幕
+  1.begin1方法
+    来一条弹幕信息，就添加进去，准备显示一条。
+  2.begin2方法
+    显示固定内容，给一个装有文字的数组，就不用管了。自己播放
+    
+  注意:这两种都是内容全部播完了就自动停止了，不会一直轮播。
+ **/
+- (IBAction)begin1:(id)sender {
+    
     
     static int a = 0;
     a++;
     [_randomDansView addRandomText:[NSString stringWithFormat:@"好不下个安师大哈送打电话地球哦我当前。。。%d",a]];
 }
-- (IBAction)puse:(id)sender {
+- (IBAction)begin2:(id)sender {
+    
     
     [_dansView starDans];
 }
